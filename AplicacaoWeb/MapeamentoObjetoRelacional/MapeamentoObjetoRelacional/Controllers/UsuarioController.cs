@@ -18,30 +18,28 @@ namespace MapeamentoObjetoRelacional.Controllers
                 string filePath = "wwwroot/Data/usuarios.xml";
                 
                 DataContainer dataContainer = DeserializeFromXml(filePath);
-                
 
+                var model = new List<UsuarioGridView>();
                 // Exibir os dados deserializados
                 foreach (var entidade in dataContainer.Entidades)
-                {
-                    Console.WriteLine($"Entidade Id: {entidade.ENT_Id}");
-                    Console.WriteLine($"Entidade Nome: {entidade.ENT_Nome}");
-                    Console.WriteLine($"Entidade Responsavel: {entidade.ENT_Responsavel}");
-                    Console.WriteLine($"Entidade Terminal Prefixo: {entidade.ENT_TerminalPrefixo}");
-
+                {               
                     foreach (var usuario in entidade.Usuarios)
                     {
-                        Console.WriteLine($"   - Usuario Id: {usuario.USU_Id}");
-                        Console.WriteLine($"     Usuario Nome: {usuario.USU_Nome}");
-                        Console.WriteLine($"     Usuario Login: {usuario.USU_Login}");
-                        Console.WriteLine($"     Usuario Senha: {usuario.USU_Senha}");
-                        Console.WriteLine($"     Usuario Bloqueado: {usuario.USU_Bloqueado}");
-                        Console.WriteLine($"     Usuario Data Acesso: {usuario.USU_DataAcesso}");
+                        foreach (var perfil in usuario.UsuariosXPerfis)
+                        {
+                            model.Add(new UsuarioGridView
+                            {
+                                Nome = usuario.USU_Nome,
+                                Entidade = entidade.ENT_Nome,
+                                Perfil = perfil.Perfil.PER_Nome,
+                                Sistema = perfil.Perfil.Sistema.SIS_Nome
+                            });
+                        }
                     }
-
-                    Console.WriteLine();
+                    
                 }
 
-                return View();
+                return View(model);
             }
             catch (Exception e)
             {
@@ -50,19 +48,6 @@ namespace MapeamentoObjetoRelacional.Controllers
             }
 
         }
-
-        // static List<ADM_Entidade> DeserializeFromXml(string filePath)
-        // {
-        //     XmlSerializer serializer = new XmlSerializer(typeof(DataContainer));
-        //
-        //     using FileStream fileStream = new FileStream(filePath, FileMode.Open);
-        //     
-        //     // Altere o tipo de retorno para DataContainer
-        //     DataContainer container = (DataContainer)serializer.Deserialize(fileStream);
-        //
-        //     // Retorne a lista de entidades contida no container
-        //     return container?.Entidades;
-        // }
         
         public static DataContainer DeserializeFromXml(string filePath)
         {
