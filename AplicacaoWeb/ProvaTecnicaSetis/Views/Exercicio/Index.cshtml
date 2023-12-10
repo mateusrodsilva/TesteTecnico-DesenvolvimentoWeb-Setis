@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Exercícios";
+}
+<div class="row">
+    <h1 class="display-4">Exercícios</h1>
+    <br/>
+
+    <h4><b>3.1</b> Escrever uma instrução SQL (SELECT) que traga os Usuários e todos os seus vínculos, utilizando como base o diagrama anexo.</h4>
+    <code language="sql">
+        SELECT<br/>
+        u.USU_Nome AS 'Nome do usuário',<br/>
+        e.ENT_Nome AS Entidade,<br/>
+        p.PER_Nome AS Perfil,<br/>
+        s.SIS_Nome AS Sistema<br/>
+        FROM ADM_Usuario u<br/>
+        INNER JOIN ADM_Entidade e ON e.ENT_Id = u.USU_ENT_Id<br/>
+        INNER JOIN ADM_UsuarioXPerfil up ON up.USP_USU_Id = u.USU_Id<br/>
+        INNER JOIN ADM_Perfil p ON p.PER_Id = up.USP_PER_Id<br/>
+        INNER JOIN ADM_Sistema s ON p.PER_SIS_Id = s.SIS_Id
+    </code>
+    <p>Para conferir o resultado da consulta, clique <a href="~/Data/DDL.txt" target="_blank">aqui</a> para verificar o arquivo DDL com o script de criação do banco de dados, as tabelas, inserindo dados fictícios e a consulta acima</p>
+    <br/>
+    <br/>
+
+    <h4>
+        <b>3.2</b> Criar um Projeto Web no Visual Studio e, para o diagrama anexo, mapear e relacionar a
+        estrutura de dados para o Objeto (mapeamento objeto-relacional). Fazer apenas o
+        mapeamento de Classes (Domínio), não é necessário criar o Repositório (acesso ao banco
+        de dados).
+    </h4>
+    <p>Clique <a href="~/Data/MapeamentoClasses.txt" target="_blank">aqui</a> para conferir o mapeamento de classes. Também estão na Pasta Models no código fonte desse projeto.</p>
+    <br/>
+    <br/>
+
+    <h4><b>3.3</b> Definir uma estrutura XML que corresponda ao modelo de dados anexo (inteiro) e criar um arquivo com dados fictícios utilizando esta estrutura, com no mínimo 2 Usuários.</h4>
+    <p>Clique <a href="~/Data/usuarios.xml" target="_blank">aqui</a> para conferir o arquivo XML.</p>
+    <br/>
+    <br/>
+
+    <h4><b>3.4</b> Realizar a importação do arquivo XML criado anteriormente, alimentando uma Lista de Usuários, preenchendo todas as dependências da Classe Usuario (utilizando o mapeamento criado no item 3.2). Feito isso, fazer o Bind (vínculo) dessa Lista de Usuários em um GridView (exibir os dados do Usuário e de sua entidade).</h4>
+    <p>Clique <a href="~/Usuario/Index" target="_blank">aqui</a> para conferir a listagem dos usuários.</p>
+</div>

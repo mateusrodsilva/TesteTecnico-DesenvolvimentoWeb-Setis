@@ -1,0 +1,31 @@
+﻿@model List<UsuarioGridView>
+@{
+    ViewData["Title"] = "Usuários";
+}
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id do Usuário</th>
+        <th>Nome do usuário</th>
+        <th>Login</th>
+        <th>Usuário Bloqueado</th>
+        <th>Data de Acesso</th>
+        <th>Entidade</th>
+        <th>Prefixo Terminal</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var usuario in Model)
+    {
+        <tr>
+            <td>@usuario.IdUsuario</td>
+            <td>@usuario.NomeUsuario</td>
+            <td>@usuario.LoginUsuario</td>
+            <td>@usuario.UsuarioBloqueado</td>
+            <td>@usuario.DataAcessoUsuario</td>
+            <td>@usuario.NomeEntidade</td>
+            <td>@usuario.TerminalPrefixoEntidade</td>
+        </tr>
+    }
+    </tbody>
+</table>
