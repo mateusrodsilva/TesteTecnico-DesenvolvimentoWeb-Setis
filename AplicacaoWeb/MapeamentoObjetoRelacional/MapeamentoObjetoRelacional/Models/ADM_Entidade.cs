@@ -7,20 +7,20 @@ namespace MapeamentoObjetoRelacional.Models
     [XmlRoot("ADM_Entidade")]
     public class ADM_Entidade
     {
-        [XmlAttribute]
-        [Key]
+        [Key, XmlElement("ENT_Id")]
         public short ENT_Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(50), XmlElement("ENT_Nome")]
         public string ENT_Nome { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(50), XmlElement("ENT_Responsavel")]
         public string ENT_Responsavel { get; set; }
-
+        
+        [XmlElement("ENT_TerminalPrefixo")]
         public short ENT_TerminalPrefixo { get; set; }
 
-        [XmlElement("Usuarios")] public List<ADM_Usuario> Usuarios { get; set; } = new();
+        [XmlArray("Usuarios"), XmlArrayItem("ADM_Usuario", typeof(ADM_Usuario))] public List<ADM_Usuario> Usuarios { get; set; } = new();
     }
 }

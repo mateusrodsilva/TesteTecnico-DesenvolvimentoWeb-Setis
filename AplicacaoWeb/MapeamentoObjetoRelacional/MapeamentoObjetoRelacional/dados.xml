@@ -1,1 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?><ArrayOfADM_Entidade xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ADM_Entidade><ENT_Id>1</ENT_Id><ENT_Nome>MinhaEntidade</ENT_Nome><ENT_Responsavel>ResponsavelEntidade</ENT_Responsavel><ENT_TerminalPrefixo>100</ENT_TerminalPrefixo><Usuarios><ADM_Usuario><USU_Id>1</USU_Id><USU_ENT_Id>1</USU_ENT_Id><USU_Nome>UsuarioFicticio</USU_Nome><USU_Login>userficticio</USU_Login><USU_Senha>senha123</USU_Senha><USU_Bloqueado>false</USU_Bloqueado><USU_DataAcesso>2023-12-09T20:40:49.3841408-03:00</USU_DataAcesso><UsuariosXPerfis><ADM_UsuarioXPerfil><USP_USU_Id>1</USP_USU_Id><USP_PER_Id>1</USP_PER_Id></ADM_UsuarioXPerfil></UsuariosXPerfis></ADM_Usuario></Usuarios></ADM_Entidade></ArrayOfADM_Entidade>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfADM_Entidade xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ADM_Entidade>
+        <ENT_Id>1</ENT_Id>
+        <ENT_Nome>MinhaEntidade</ENT_Nome>
+        <ENT_Responsavel>ResponsavelEntidade</ENT_Responsavel>
+        <ENT_TerminalPrefixo>100</ENT_TerminalPrefixo>
+        <Usuarios>
+            <ADM_Usuario>
+                <USU_Id>1</USU_Id>
+                <USU_ENT_Id>1</USU_ENT_Id>
+                <USU_Nome>UsuarioFicticio</USU_Nome>
+                <USU_Login>userficticio</USU_Login>
+                <USU_Senha>senha123</USU_Senha>
+                <USU_Bloqueado>false</USU_Bloqueado>
+                <USU_DataAcesso>2023-12-09T20:40:49.3841408-03:00</USU_DataAcesso>
+                <UsuariosXPerfis>
+                    <ADM_UsuarioXPerfil>
+                        <USP_USU_Id>1</USP_USU_Id>
+                        <USP_PER_Id>1</USP_PER_Id>
+                    </ADM_UsuarioXPerfil>
+                </UsuariosXPerfis>
+            </ADM_Usuario>
+        </Usuarios>
+    </ADM_Entidade>
+</ArrayOfADM_Entidade>

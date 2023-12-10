@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <!-- Entidade 1 -->
   <ADM_Entidades>
@@ -17,139 +17,28 @@
           <USU_Bloqueado>false</USU_Bloqueado>
           <USU_DataAcesso>2023-12-09T12:00:00</USU_DataAcesso>
           <!-- UsuarioXPerfil 1 -->
-          <ADM_UsuariosXPerfis>
+          <UsuariosXPerfis>
             <ADM_UsuarioXPerfil>
               <USP_USU_Id>1</USP_USU_Id>
               <USP_PER_Id>1</USP_PER_Id>
               <!-- Perfil 1 -->
-                <ADM_Perfis>
-                  <ADM_Perfil>
-                    <PER_Id>1</PER_Id>
-                    <PER_SIS_Id>1</PER_SIS_Id>
-                    <PER_Nome>PerfilA</PER_Nome>
-                    <!-- Sistema 1 -->
-                      <ADM_Sistemas>
-                        <ADM_Sistema>
-                          <SIS_Id>1</SIS_Id>
-                          <SIS_Nome>SistemaA</SIS_Nome>
-                          <SIS_Link>http://sistemaA.com</SIS_Link>
-                          <Perfis>
-                            <ADM_Perfil>
-                              <PER_Id>1</PER_Id>
-                            </ADM_Perfil>
-                          </Perfis>
-                        </ADM_Sistema>
-                      </ADM_Sistemas>
-                  </ADM_Perfil>
-                </ADM_Perfis>
+              <Perfis>
+                <ADM_Perfil>
+                  <PER_Id>1</PER_Id>
+                  <PER_SIS_Id>1</PER_SIS_Id>
+                  <PER_Nome>PerfilA</PER_Nome>
+                  <!-- Sistema 1 -->
+                  <Sistema>
+                    <SIS_Id>1</SIS_Id>
+                    <SIS_Nome>SistemaA</SIS_Nome>
+                    <SIS_Link>http://sistemaA.com</SIS_Link>
+                  </Sistema>
+                </ADM_Perfil>
+              </Perfis>
             </ADM_UsuarioXPerfil>
-          </ADM_UsuariosXPerfis>
+          </UsuariosXPerfis>
         </ADM_Usuario>
       </Usuarios>
     </ADM_Entidade>
   </ADM_Entidades>
-
-  <!-- Entidade 2 -->
-  <ADM_Entidades>
-    <ADM_Entidade>
-      <ENT_Id>2</ENT_Id>
-      <ENT_Nome>EntidadeB</ENT_Nome>
-      <ENT_Responsavel>ResponsavelB</ENT_Responsavel>
-      <ENT_TerminalPrefixo>102</ENT_TerminalPrefixo>
-      <Usuarios>
-        <ADM_Usuario>
-          <USU_Id>2</USU_Id>
-          <USU_ENT_Id>2</USU_ENT_Id>
-          <USU_Nome>UsuarioB1</USU_Nome>
-          <USU_Login>userB1</USU_Login>
-          <USU_Senha>senha123</USU_Senha>
-          <USU_Bloqueado>false</USU_Bloqueado>
-          <USU_DataAcesso>2023-12-09T12:00:00</USU_DataAcesso>
-        </ADM_Usuario>
-      </Usuarios>
-    </ADM_Entidade>
-  </ADM_Entidades>
-
-  <!-- Perfil 2 -->
-  <ADM_Perfis>
-    <ADM_Perfil>
-      <PER_Id>2</PER_Id>
-      <PER_SIS_Id>1</PER_SIS_Id>
-      <PER_Nome>PerfilB</PER_Nome>
-    </ADM_Perfil>
-  </ADM_Perfis>
-
-  <!-- UsuarioXPerfil 2 -->
-  <ADM_UsuariosXPerfis>
-    <ADM_UsuarioXPerfil>
-      <USP_USU_Id>2</USP_USU_Id>
-      <USP_PER_Id>2</USP_PER_Id>
-    </ADM_UsuarioXPerfil>
-  </ADM_UsuariosXPerfis>
-
-  <!-- Sistema 2 -->
-  <ADM_Sistemas>
-    <ADM_Sistema>
-      <SIS_Id>2</SIS_Id>
-      <SIS_Nome>SistemaB</SIS_Nome>
-      <SIS_Link>http://sistemaB.com</SIS_Link>
-      <Perfis>
-        <ADM_Perfil>
-          <PER_Id>2</PER_Id>
-        </ADM_Perfil>
-      </Perfis>
-    </ADM_Sistema>
-  </ADM_Sistemas>
-
-  <!-- Entidade 3 -->
-  <ADM_Entidades>
-    <ADM_Entidade>
-      <ENT_Id>3</ENT_Id>
-      <ENT_Nome>EntidadeC</ENT_Nome>
-      <ENT_Responsavel>ResponsavelC</ENT_Responsavel>
-      <ENT_TerminalPrefixo>103</ENT_TerminalPrefixo>
-      <Usuarios>
-        <ADM_Usuario>
-          <USU_Id>3</USU_Id>
-          <USU_ENT_Id>3</USU_ENT_Id>
-          <USU_Nome>UsuarioC1</USU_Nome>
-          <USU_Login>userC1</USU_Login>
-          <USU_Senha>senha123</USU_Senha>
-          <USU_Bloqueado>false</USU_Bloqueado>
-          <USU_DataAcesso>2023-12-09T12:00:00</USU_DataAcesso>
-        </ADM_Usuario>
-      </Usuarios>
-    </ADM_Entidade>
-  </ADM_Entidades>
-
-  <!-- Perfil 3 -->
-  <ADM_Perfis>
-    <ADM_Perfil>
-      <PER_Id>3</PER_Id>
-      <PER_SIS_Id>1</PER_SIS_Id>
-      <PER_Nome>PerfilC</PER_Nome>
-    </ADM_Perfil>
-  </ADM_Perfis>
-
-  <!-- UsuarioXPerfil 3 -->
-  <ADM_UsuariosXPerfis>
-    <ADM_UsuarioXPerfil>
-      <USP_USU_Id>3</USP_USU_Id>
-      <USP_PER_Id>3</USP_PER_Id>
-    </ADM_UsuarioXPerfil>
-  </ADM_UsuariosXPerfis>
-
-  <!-- Sistema 3 -->
-  <ADM_Sistemas>
-    <ADM_Sistema>
-      <SIS_Id>3</SIS_Id>
-      <SIS_Nome>SistemaC</SIS_Nome>
-      <SIS_Link>http://sistemaC.com</SIS_Link>
-      <Perfis>
-        <ADM_Perfil>
-          <PER_Id>3</PER_Id>
-        </ADM_Perfil>
-      </Perfis>
-    </ADM_Sistema>
-  </ADM_Sistemas>
 </Data>

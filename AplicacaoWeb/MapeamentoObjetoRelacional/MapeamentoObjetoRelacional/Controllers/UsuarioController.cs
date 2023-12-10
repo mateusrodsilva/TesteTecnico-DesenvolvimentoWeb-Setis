@@ -16,12 +16,12 @@ namespace MapeamentoObjetoRelacional.Controllers
             {
                 // Caminho do arquivo XML
                 string filePath = "wwwroot/Data/usuarios.xml";
-
-                // Deserializar o arquivo XML
-                List<ADM_Entidade> entidades = DeserializeFromXml(filePath);
+                
+                DataContainer dataContainer = DeserializeFromXml(filePath);
+                
 
                 // Exibir os dados deserializados
-                foreach (var entidade in entidades)
+                foreach (var entidade in dataContainer.Entidades)
                 {
                     Console.WriteLine($"Entidade Id: {entidade.ENT_Id}");
                     Console.WriteLine($"Entidade Nome: {entidade.ENT_Nome}");
@@ -51,17 +51,42 @@ namespace MapeamentoObjetoRelacional.Controllers
 
         }
 
-        static List<ADM_Entidade> DeserializeFromXml(string filePath)
+        // static List<ADM_Entidade> DeserializeFromXml(string filePath)
+        // {
+        //     XmlSerializer serializer = new XmlSerializer(typeof(DataContainer));
+        //
+        //     using FileStream fileStream = new FileStream(filePath, FileMode.Open);
+        //     
+        //     // Altere o tipo de retorno para DataContainer
+        //     DataContainer container = (DataContainer)serializer.Deserialize(fileStream);
+        //
+        //     // Retorne a lista de entidades contida no container
+        //     return container?.Entidades;
+        // }
+        
+        public static DataContainer DeserializeFromXml(string filePath)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(DataContainer));
+            DataContainer dataContainer;
+            try
+            {
+                // Usando um bloco 'using' para garantir a liberação dos recursos
+                using (var reader = new StreamReader(filePath))
+                {
+                    // Criando instâncias de XmlSerializerNamespaces e XmlSerializer para a classe DataContainer
+                    
+                    var serializer = new XmlSerializer(typeof(DataContainer));
+                
+                    // Desserializando o arquivo XML e convertendo para DataContainer
+                    dataContainer = (DataContainer)serializer.Deserialize(reader);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
 
-            using FileStream fileStream = new FileStream(filePath, FileMode.Open);
-            
-            // Altere o tipo de retorno para DataContainer
-            DataContainer container = (DataContainer)serializer.Deserialize(fileStream);
-
-            // Retorne a lista de entidades contida no container
-            return container?.Entidades;
+            return dataContainer;
         }
     }
 }
