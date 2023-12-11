@@ -1,4 +1,8 @@
-ï»¿CREATE DATABASE db_ProvaSetis
+/*3.1. Escrever uma instrução SQL (SELECT) que traga os Usuários e todos os seus vínculos, utilizando como base o diagrama anexo.*/
+
+
+-- Primeiro criei a estrutura do banco de dados
+CREATE DATABASE db_ProvaSetis
 go
 
 USE db_ProvaSetis
@@ -51,12 +55,15 @@ CREATE TABLE ADM_UsuarioXPerfil (
 );
 
 
+-- Tabela ADM_Sistema
+
 INSERT INTO ADM_Sistema (SIS_Nome, SIS_Link)
 VALUES
 ('Sistema A', 'https://sistemaa.com.br'),
 ('Sistema B', 'https://sistemab.com.br'),
 ('Sistema C', 'https://sistemac.com.br');
 
+-- Tabela ADM_Perfil
 
 INSERT INTO ADM_Perfil (PER_SIS_Id, PER_Nome)
 VALUES
@@ -64,12 +71,14 @@ VALUES
 (1, 'Editor'),
 (2, 'Visualizador');
 
+-- Tabela ADM_Entidade
 
 INSERT INTO ADM_Entidade (ENT_Nome, ENT_Responsavel, ENT_TerminalPrefixo)
 VALUES
 ('Empresa X', 'Mateus R', 1234),
 ('Empresa Y', 'Ester M', 5678);
 
+-- Tabela ADM_Usuario
 
 INSERT INTO ADM_Usuario (USU_ENT_Id, USU_Nome, USU_Login, USU_Senha, USU_Bloqueado, USU_DataAcesso)
 VALUES
@@ -87,13 +96,14 @@ VALUES
 (1, 2);
 
 
+-- Aqui a consulta que é a resposta do exercício
 SELECT
-    u.USU_Nome AS 'Nome do usuÃ¡rio',
-    e.ENT_Nome AS Entidade,
-    p.PER_Nome AS Perfil,
-    s.SIS_Nome AS Sistema
+  u.USU_Nome AS 'Nome do usuário',
+  e.ENT_Nome AS Entidade,
+  p.PER_Nome AS Perfil,
+  s.SIS_Nome AS Sistema
 FROM ADM_Usuario u
-    INNER JOIN ADM_Entidade e ON e.ENT_Id = u.USU_ENT_Id
-    INNER JOIN ADM_UsuarioXPerfil up ON up.USP_USU_Id = u.USU_Id
-    INNER JOIN ADM_Perfil p ON p.PER_Id = up.USP_PER_Id
-    INNER JOIN ADM_Sistema s ON p.PER_SIS_Id = s.SIS_Id
+INNER JOIN ADM_Entidade e ON e.ENT_Id = u.USU_ENT_Id
+INNER JOIN ADM_UsuarioXPerfil up ON up.USP_USU_Id = u.USU_Id
+INNER JOIN ADM_Perfil p ON p.PER_Id = up.USP_PER_Id
+INNER JOIN ADM_Sistema s ON p.PER_SIS_Id = s.SIS_Id

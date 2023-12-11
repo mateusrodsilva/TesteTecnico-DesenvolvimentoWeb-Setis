@@ -32,7 +32,7 @@ namespace ProvaTecnicaSetis.Models
 
         [XmlIgnore]
         [ForeignKey("USU_ENT_Id")]
-        public ADM_Entidade Entidade { get; set; }
+        public virtual ADM_Entidade Entidade { get; set; }
         
         [XmlArray("UsuariosXPerfis"), XmlArrayItem("ADM_UsuarioXPerfil", typeof(ADM_UsuarioXPerfil))]
         public List<ADM_UsuarioXPerfil> UsuariosXPerfis { get; set; }

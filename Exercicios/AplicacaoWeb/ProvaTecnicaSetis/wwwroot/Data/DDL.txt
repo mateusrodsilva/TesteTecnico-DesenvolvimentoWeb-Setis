@@ -1,3 +1,7 @@
+﻿/*3.1. Escrever uma instrução SQL (SELECT) que traga os Usuários e todos os seus vínculos, utilizando como base o diagrama anexo.*/
+
+
+-- Primeiro criei a estrutura do banco de dados
 CREATE DATABASE db_ProvaSetis
 go
 
@@ -92,8 +96,9 @@ VALUES
 (1, 2);
 
 
+-- Aqui a consulta que é a resposta do exercício
 SELECT
-  u.USU_Nome AS 'Nome do usu�rio',
+  u.USU_Nome AS 'Nome do usuário',
   e.ENT_Nome AS Entidade,
   p.PER_Nome AS Perfil,
   s.SIS_Nome AS Sistema

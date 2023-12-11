@@ -14,10 +14,10 @@ namespace ProvaTecnicaSetis.Models
 
         [XmlIgnore]
         [ForeignKey("USP_USU_Id")]
-        public ADM_Usuario Usuario { get; set; }
+        public virtual ADM_Usuario Usuario { get; set; }
         
         [XmlElement("ADM_Perfil")]
         [ForeignKey("USP_PER_Id")]
-        public ADM_Perfil Perfil { get; set; }
+        public virtual ADM_Perfil Perfil { get; set; }
     }
 }

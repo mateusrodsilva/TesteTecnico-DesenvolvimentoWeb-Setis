@@ -15,7 +15,7 @@ public class UsuarioController : Controller
                 
             DataContainer dataContainer = DeserializeFromXml(filePath);
 
-            var model = new List<UsuarioGridView>();
+            var lstUsuarios = new List<UsuarioGridView>();
             // Exibir os dados deserializados
             foreach (var entidade in dataContainer.Entidades)
             {               
@@ -23,7 +23,7 @@ public class UsuarioController : Controller
                 {
                     foreach (var perfil in usuario.UsuariosXPerfis)
                     {
-                        model.Add(new UsuarioGridView
+                        lstUsuarios.Add(new UsuarioGridView
                         {
                             IdUsuario = usuario.USU_Id,
                             NomeUsuario = usuario.USU_Nome,
@@ -38,7 +38,7 @@ public class UsuarioController : Controller
                     
             }
 
-            return View(model);
+            return View(lstUsuarios);
         }
         catch (Exception e)
         {
@@ -54,15 +54,13 @@ public class UsuarioController : Controller
         try
         {
             // Usando um bloco 'using' para garantir a liberação dos recursos
-            using (var reader = new StreamReader(filePath))
-            {
-                // Criando instâncias de XmlSerializerNamespaces e XmlSerializer para a classe DataContainer
+            using var reader = new StreamReader(filePath);
+            // Criando instâncias de XmlSerializerNamespaces e XmlSerializer para a classe DataContainer
                     
-                var serializer = new XmlSerializer(typeof(DataContainer));
+            var serializer = new XmlSerializer(typeof(DataContainer));
                 
-                // Desserializando o arquivo XML e convertendo para DataContainer
-                dataContainer = (DataContainer)serializer.Deserialize(reader);
-            }
+            // Desserializando o arquivo XML e convertendo para DataContainer
+            dataContainer = (DataContainer)serializer.Deserialize(reader);
         }
         catch (Exception e)
         {

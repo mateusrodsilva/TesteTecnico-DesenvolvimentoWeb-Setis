@@ -21,7 +21,7 @@ namespace ProvaTecnicaSetis.Models
         
         [XmlElement("ADM_Sistema")]
         [ForeignKey("PER_SIS_Id")]
-        public ADM_Sistema Sistema { get; set; }
+        public virtual ADM_Sistema Sistema { get; set; }
         
         [XmlIgnore]
         public List<ADM_UsuarioXPerfil> UsuariosXPerfis { get; set; }

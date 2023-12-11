@@ -14,7 +14,7 @@
           <USU_Login>mateusrodsilva</USU_Login>
           <USU_Senha>senha123</USU_Senha>
           <USU_Bloqueado>false</USU_Bloqueado>
-          <USU_DataAcesso>2023-12-09T12:00:00</USU_DataAcesso>
+          <USU_DataAcesso>2023-12-08T12:00:00</USU_DataAcesso>
           <UsuariosXPerfis>
             <ADM_UsuarioXPerfil>
               <USP_USU_Id>1</USP_USU_Id>
@@ -27,20 +27,6 @@
                     <SIS_Id>1</SIS_Id>
                     <SIS_Nome>Sistema A</SIS_Nome>
                     <SIS_Link>http://sistemaA.com</SIS_Link>
-                  </ADM_Sistema>
-                </ADM_Perfil>
-            </ADM_UsuarioXPerfil>
-            <ADM_UsuarioXPerfil>
-              <USP_USU_Id>1</USP_USU_Id>
-              <USP_PER_Id>1</USP_PER_Id>
-              <ADM_Perfil>
-                  <PER_Id>2</PER_Id>
-                  <PER_SIS_Id>2</PER_SIS_Id>
-                  <PER_Nome>Editor</PER_Nome>
-                  <ADM_Sistema>
-                    <SIS_Id>2</SIS_Id>
-                    <SIS_Nome>Sistema B</SIS_Nome>
-                    <SIS_Link>http://sistemaB.com</SIS_Link>
                   </ADM_Sistema>
                 </ADM_Perfil>
             </ADM_UsuarioXPerfil>
@@ -94,7 +80,7 @@
           <USU_Login>gabitenorio</USU_Login>
           <USU_Senha>senha123</USU_Senha>
           <USU_Bloqueado>true</USU_Bloqueado>
-          <USU_DataAcesso>2023-12-09T12:00:00</USU_DataAcesso>
+          <USU_DataAcesso>2023-12-10T12:00:00</USU_DataAcesso>
 
           <UsuariosXPerfis>
 

@@ -33,7 +33,7 @@
             
             [XmlElement("ADM_Sistema")]
             [ForeignKey("PER_SIS_Id")]
-            public ADM_Sistema Sistema { get; set; }
+            public virtual ADM_Sistema Sistema { get; set; }
             
             [XmlIgnore]
             public List<ADM_UsuarioXPerfil> UsuariosXPerfis { get; set; }
@@ -85,7 +85,7 @@
             
                     [XmlIgnore]
                     [ForeignKey("USU_ENT_Id")]
-                    public ADM_Entidade Entidade { get; set; }
+                    public virtual ADM_Entidade Entidade { get; set; }
                     
                     [XmlArray("UsuariosXPerfis"), XmlArrayItem("ADM_UsuarioXPerfil", typeof(ADM_UsuarioXPerfil))]
                     public List<ADM_UsuarioXPerfil> UsuariosXPerfis { get; set; }
@@ -101,9 +101,9 @@
                 
                         [XmlIgnore]
                         [ForeignKey("USP_USU_Id")]
-                        public ADM_Usuario Usuario { get; set; }
+                        public virtual ADM_Usuario Usuario { get; set; }
                         
                         [XmlElement("ADM_Perfil")]
                         [ForeignKey("USP_PER_Id")]
-                        public ADM_Perfil Perfil { get; set; }
+                        public virtual ADM_Perfil Perfil { get; set; }
                     }
