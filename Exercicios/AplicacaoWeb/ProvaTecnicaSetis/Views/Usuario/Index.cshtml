@@ -15,17 +15,20 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var usuario in Model)
+    @if (Model.Any())
     {
-        <tr>
-            <td>@usuario.IdUsuario</td>
-            <td>@usuario.NomeUsuario</td>
-            <td>@usuario.LoginUsuario</td>
-            <td>@usuario.UsuarioBloqueado</td>
-            <td>@usuario.DataAcessoUsuario</td>
-            <td>@usuario.NomeEntidade</td>
-            <td>@usuario.TerminalPrefixoEntidade</td>
-        </tr>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.IdUsuario</td>
+                <td>@usuario.NomeUsuario</td>
+                <td>@usuario.LoginUsuario</td>
+                <td>@usuario.UsuarioBloqueado</td>
+                <td>@usuario.DataAcessoUsuario</td>
+                <td>@usuario.NomeEntidade</td>
+                <td>@usuario.TerminalPrefixoEntidade</td>
+            </tr>
+        }
     }
     </tbody>
 </table>

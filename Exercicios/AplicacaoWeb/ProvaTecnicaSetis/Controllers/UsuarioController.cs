@@ -3,69 +3,58 @@ using Microsoft.AspNetCore.Mvc;
 using ProvaTecnicaSetis.Models;
 
 namespace ProvaTecnicaSetis.Controllers;
-
+[Route("Usuarios")]
 public class UsuarioController : Controller
 {
     public IActionResult Index()
     {
+        List<UsuarioGridView> lstUsuarios;
         try
         {
-            // Caminho do arquivo XML
-            string filePath = "wwwroot/Data/usuarios.xml";
+            const string filePath = "wwwroot/Data/usuarios.xml";
                 
-            DataContainer dataContainer = DeserializeFromXml(filePath);
+            var dataContainer = DeserializeFromXml(filePath);
 
-            var lstUsuarios = new List<UsuarioGridView>();
-            // Exibir os dados deserializados
-            foreach (var entidade in dataContainer.Entidades)
-            {               
-                foreach (var usuario in entidade.Usuarios)
-                {
-                    foreach (var perfil in usuario.UsuariosXPerfis)
+            if (dataContainer is null)
+                throw new Exception("O arquivo XML não retornou dados. Verifique o arquivo.");
+            
+            lstUsuarios = 
+                (from entidade in dataContainer.Entidades
+                    from usuario in entidade.Usuarios
+                    select new UsuarioGridView
                     {
-                        lstUsuarios.Add(new UsuarioGridView
-                        {
-                            IdUsuario = usuario.USU_Id,
-                            NomeUsuario = usuario.USU_Nome,
-                            LoginUsuario = usuario.USU_Login,
-                            UsuarioBloqueado = usuario.USU_Bloqueado ? "Sim" : "Não",
-                            DataAcessoUsuario = usuario.USU_DataAcesso?.ToString("dd/MM/yyyy") ?? "",
-                            NomeEntidade = entidade.ENT_Nome,
-                            TerminalPrefixoEntidade = entidade.ENT_TerminalPrefixo.ToString() ?? ""
-                        });
-                    }
-                }
-                    
-            }
+                        IdUsuario = usuario.USU_Id,
+                        NomeUsuario = usuario.USU_Nome,
+                        LoginUsuario = usuario.USU_Login,
+                        UsuarioBloqueado = usuario.USU_Bloqueado ? "Sim" : "Não",
+                        DataAcessoUsuario = usuario.USU_DataAcesso?.ToString("dd/MM/yyyy") ?? "",
+                        NomeEntidade = entidade.ENT_Nome,
+                        TerminalPrefixoEntidade = entidade.ENT_TerminalPrefixo.ToString() ?? ""
+                    }).ToList();
 
             return View(lstUsuarios);
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-            throw;
+            return View(new List<UsuarioGridView>());
         }
 
     }
         
-    private static DataContainer DeserializeFromXml(string filePath)
+    private static DataContainer? DeserializeFromXml(string filePath)
     {
-        DataContainer dataContainer;
+        DataContainer? dataContainer;
         try
         {
-            // Usando um bloco 'using' para garantir a liberação dos recursos
             using var reader = new StreamReader(filePath);
-            // Criando instâncias de XmlSerializerNamespaces e XmlSerializer para a classe DataContainer
-                    
             var serializer = new XmlSerializer(typeof(DataContainer));
-                
-            // Desserializando o arquivo XML e convertendo para DataContainer
-            dataContainer = (DataContainer)serializer.Deserialize(reader);
+            dataContainer = (DataContainer)serializer.Deserialize(reader)!;
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
+            dataContainer = null;
         }
 
         return dataContainer;
