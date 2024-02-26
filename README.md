@@ -1,3 +1,6 @@
+## Status da aplicação Web
+[![PR_build](https://github.com/mateusrodsilva/TesteTecnico-DesenvolvimentoWeb-Setis/actions/workflows/dotnet.yml/badge.svg)](https://github.com/mateusrodsilva/TesteTecnico-DesenvolvimentoWeb-Setis/actions/workflows/dotnet.yml)
+
 # Teste técnico Deliver IT / Setis
 
 Teste proposto pela empresa Deliver IT para a vaga de Desenvolvedor na Setis, que referem a habilidades no desenvolvimento web.
@@ -10,6 +13,7 @@ Foi proposto alguns exercícios no documento `Prova - Desenvolvimento Web 201302
     * Os exercícios 3.2 e 3.4 foram desenvolvidos dentro da aplicação web `Exercicios\AplicacaoWeb` *
 ## Ferramentas utilizadas
 
+- GitHub Actions
 - .NET 8
 - Visual Studio 2022
 - Microsoft SQL Server Management Studio 
